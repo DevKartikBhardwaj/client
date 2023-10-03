@@ -4,11 +4,13 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import ForgetPass from "./components/ForgetPass";
 import ResetPassword from "./components/ResetPassword";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <>
       <Router>
+        <Toaster position="top-center" reverseOrder={false} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />

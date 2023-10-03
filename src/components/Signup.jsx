@@ -110,7 +110,6 @@ const Signup = () => {
   return (
     <>
       <Stack alignItems={"center"}>
-        <Toaster position="top-center" reverseOrder={false} />
         <Paper
           elevation={10}
           style={{ textAlign: "center", width: "400px", margin: "30px" }}

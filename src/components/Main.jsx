@@ -55,7 +55,7 @@ const Main = () => {
 
   return (
     <>
-      <Toaster position="top-center" reverseOrder={false} />
+      {/* <Toaster position="top-center" reverseOrder={false} /> */}
       <Box
         position={"absolute"}
         top={"60px"}
