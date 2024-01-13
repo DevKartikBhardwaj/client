@@ -125,7 +125,7 @@ const Main = () => {
           flexWrap={"wrap"}
           flexDirection={"row"}
         >
-          {fetchedNotes[0] &&
+          {fetchedNotes &&
             fetchedNotes.map((element, i) => {
               return (
                 <NotesCard
