@@ -125,18 +125,19 @@ const Main = () => {
           flexWrap={"wrap"}
           flexDirection={"row"}
         >
-          {fetchedNotes.map((element, i) => {
-            return (
-              <NotesCard
-                title={element.title}
-                description={element.description}
-                id={element._id}
-                created={element.createdAt}
-                updated={element.updatedAt}
-                key={i}
-              />
-            );
-          })}
+          {fetchedNotes &&
+            fetchedNotes.map((element, i) => {
+              return (
+                <NotesCard
+                  title={element.title}
+                  description={element.description}
+                  id={element._id}
+                  created={element.createdAt}
+                  updated={element.updatedAt}
+                  key={i}
+                />
+              );
+            })}
         </Stack>
       </Box>
     </>
