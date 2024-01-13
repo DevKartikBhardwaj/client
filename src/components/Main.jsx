@@ -125,7 +125,7 @@ const Main = () => {
           flexWrap={"wrap"}
           flexDirection={"row"}
         >
-          {fetchedNotes &&
+          {/* {fetchedNotes &&
             fetchedNotes.map((element, i) => {
               return (
                 <NotesCard
@@ -137,7 +137,7 @@ const Main = () => {
                   key={i}
                 />
               );
-            })}
+            })} */}
         </Stack>
       </Box>
     </>
