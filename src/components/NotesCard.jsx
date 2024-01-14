@@ -14,7 +14,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import manipContext from "../Contexts/ManipContext";
-
+const baseUrl = process.env.BASE_URL;
 const NotesCard = ({ title, description, id, created, updated }) => {
   let createdDateStamp = new Date(created).toDateString();
   let createdTimeStamp = new Date(created).toTimeString().slice(0, 8);
@@ -37,7 +37,7 @@ const NotesCard = ({ title, description, id, created, updated }) => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`delete-note/${id}`)
+      .delete(`${baseUrl}delete-note/${id}`)
       .then((res) => {
         toast.success(res.data.msg);
         setManipValue(++manipValue);
@@ -53,7 +53,7 @@ const NotesCard = ({ title, description, id, created, updated }) => {
   const updateNote = (id) => {
     setOpen(false);
     axios
-      .put(`/update-note/${id}`, updateNotes)
+      .put(`${baseUrl}/update-note/${id}`, updateNotes)
       .then((res) => {
         toast.success(res.data.msg);
         setManipValue(++manipValue);

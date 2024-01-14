@@ -13,7 +13,7 @@ import {
   Button,
   CircularProgress,
 } from "@mui/material";
-
+const baseUrl = process.env.BASE_URL;
 const Signup = () => {
   const navigate = useNavigate();
   const [testing, setTesting] = useState("");
@@ -42,7 +42,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     axios
-      .post("/signup", userInfo)
+      .post(`${baseUrl}/signup`, userInfo)
       .then((res) => {
         const data = res.data;
         if (data.success) {
@@ -79,7 +79,7 @@ const Signup = () => {
     }
     setTesting(otp);
     axios
-      .post("/verifyOtp", { email, otp })
+      .post(`${baseUrl}/verifyOtp`, { email, otp })
       .then((res) => {
         const { success, msg } = res.data;
         if (success) {

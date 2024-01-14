@@ -4,6 +4,7 @@ import axios from "axios";
 import { toast, Toaster } from "react-hot-toast";
 import LoginIcon from "@mui/icons-material/Login";
 import { Stack, Paper, Avatar, TextField, Button } from "@mui/material";
+const baseUrl = process.env.BASE_URL;
 
 const Login = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     axios
-      .post("https://notes-server-86ig.onrender.com/login", loginObj)
+      .post(`${baseUrl}/login`, loginObj)
       .then((res) => {
         const response = res.data;
         if (response.success) {

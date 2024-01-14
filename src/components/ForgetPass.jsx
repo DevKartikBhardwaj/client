@@ -4,6 +4,8 @@ import axios from "axios";
 import { toast, Toaster } from "react-hot-toast";
 import { Stack, Paper, TextField, Button } from "@mui/material";
 
+const baseUrl = process.env.BASE_URL;
+
 const ForgetPass = () => {
   // const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -14,7 +16,7 @@ const ForgetPass = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    toast.promise(axios.post("/forget-password", { email }), {
+    toast.promise(axios.post(`${baseUrl}/forget-password`, { email }), {
       loading: "Sending verification mail.....",
       success: <b>verification mail sent successfully!</b>,
       error: <b>Not able to sent mail!</b>,
