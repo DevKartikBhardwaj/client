@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
 // import { FaceIcon } from "@material-ui/icons";
-const baseUrl = process.env.BASE_URL;
+
 import NotesCard from "./NotesCard";
 import manipContext from "../Contexts/ManipContext";
 const Main = () => {
@@ -20,7 +20,7 @@ const Main = () => {
   useEffect(() => {
     const fetchNotes = () => {
       axios
-        .get(`${baseUrl}/fetch-notes`)
+        .get(`https://notes-server-86ig.onrender.com/fetch-notes`)
         .then((res) => {
           setFetchedNotes(res.data);
         })
@@ -42,9 +42,11 @@ const Main = () => {
   const handleSubmit = (e) => {
     setSubmit(submit + 1);
     e.preventDefault();
-    axios.post(`${baseUrl}/create-note`, notesData).catch((err) => {
-      console.log(err.message);
-    });
+    axios
+      .post(`https://notes-server-86ig.onrender.com/create-note`, notesData)
+      .catch((err) => {
+        console.log(err.message);
+      });
 
     setNotesData({
       title: "",

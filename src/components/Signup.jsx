@@ -13,7 +13,6 @@ import {
   Button,
   CircularProgress,
 } from "@mui/material";
-const baseUrl = process.env.BASE_URL;
 const Signup = () => {
   const navigate = useNavigate();
   const [testing, setTesting] = useState("");
@@ -42,7 +41,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     axios
-      .post(`${baseUrl}/signup`, userInfo)
+      .post(`https://notes-server-86ig.onrender.com/signup`, userInfo)
       .then((res) => {
         const data = res.data;
         if (data.success) {
@@ -79,7 +78,7 @@ const Signup = () => {
     }
     setTesting(otp);
     axios
-      .post(`${baseUrl}/verifyOtp`, { email, otp })
+      .post(`https://notes-server-86ig.onrender.com/verifyOtp`, { email, otp })
       .then((res) => {
         const { success, msg } = res.data;
         if (success) {

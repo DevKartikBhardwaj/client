@@ -5,7 +5,7 @@ import TextSnippetIcon from "@mui/icons-material/TextSnippet";
 import Cookies from "js-cookie";
 import manipContext from "../Contexts/ManipContext";
 import axios from "axios";
-const baseUrl = process.env.BASE_URL;
+
 const Header = () => {
   let { manipValue, setManipValue } = useContext(manipContext);
   const [loginStatus, setLoginStatus] = useState(Cookies.get("auth_token"));
@@ -13,7 +13,9 @@ const Header = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const { data } = await axios.get(`${baseUrl}/getUser`);
+        const { data } = await axios.get(
+          `https://notes-server-86ig.onrender.com/getUser`
+        );
         setUserName(data.userName);
       } catch (error) {
         console.log(error);

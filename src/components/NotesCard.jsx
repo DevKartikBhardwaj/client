@@ -37,7 +37,7 @@ const NotesCard = ({ title, description, id, created, updated }) => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`${baseUrl}delete-note/${id}`)
+      .delete(`https://notes-server-86ig.onrender.comdelete-note/${id}`)
       .then((res) => {
         toast.success(res.data.msg);
         setManipValue(++manipValue);
@@ -53,7 +53,10 @@ const NotesCard = ({ title, description, id, created, updated }) => {
   const updateNote = (id) => {
     setOpen(false);
     axios
-      .put(`${baseUrl}/update-note/${id}`, updateNotes)
+      .put(
+        `https://notes-server-86ig.onrender.com/update-note/${id}`,
+        updateNotes
+      )
       .then((res) => {
         toast.success(res.data.msg);
         setManipValue(++manipValue);

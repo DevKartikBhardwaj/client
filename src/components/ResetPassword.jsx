@@ -3,7 +3,7 @@ import { toast, Toaster } from "react-hot-toast";
 import { Stack, Paper, TextField, Button } from "@mui/material";
 import axios from "axios";
 import { useNavigate, useSearchParams } from "react-router-dom";
-const baseUrl = process.env.BASE_URL;
+
 const ResetPassword = () => {
   const navigate = useNavigate();
 
@@ -25,7 +25,10 @@ const ResetPassword = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`${baseUrl}/reset-password`, passwordObject)
+      .post(
+        `https://notes-server-86ig.onrender.com/reset-password`,
+        passwordObject
+      )
       .then((res) => {
         const responseData = res.data;
         if (responseData.success) {
