@@ -23,7 +23,9 @@ const Login = () => {
     // .post(`https://notes-server-86ig.onrender.com/login`, loginObj)
 
     axios
-      .post(`https://notes-server-86ig.onrender.com/login`, loginObj)
+      .post(`https://notes-server-86ig.onrender.com/login`, loginObj, {
+        withCredentials: true,
+      })
       .then((res) => {
         const response = res.data;
         if (response.success) {
